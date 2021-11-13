@@ -66,7 +66,7 @@ function flipCard(){
                 // console.log(game.points);
                 if (game.checkGameOver()){
                     gameOver.style.display = "flex";
-                    score.innerHTML += "<br><br>Your score: " + game.points;
+                    score.innerHTML = "Your score: " + game.points;
                 }
             } else{
                 setTimeout(() => {
