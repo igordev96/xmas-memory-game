@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #BB2528;
+}
+    
+.board{
+    display: grid;
+    grid: repeat(4, 1fr) / repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card{
+    height: 150px;
+    width: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    cursor: pointer;
+}
+
+.front, .back{
+    height: 100%;
+    width: 100%;
+    border-radius: 35px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+}
+
+.flip{
+    transform: rotateY(180deg);
+}
+
+.front{
+    transform: rotateY(180deg);
+    background-color: #F8B229;
+}
+
+.back{
+    background-color: #165B33;
+}
+
+.back>img{
+    opacity: 0.7;
+}
+
+.gameOver{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background-color: rgba(0, 0, 0, 0.93);
+    animation: down 1.5s ease-out 0s 1 normal forwards;
+}
+
+.gameOver>h1{
+    font-size: 3.5rem;
+    text-align: center;
+    color: #146B3A;
+}
+
+.yeah{
+    font-size: 3rem;
+    /* animation: down 1s ease-out 0s 1 normal forwards; */
+    animation: grow 1s linear 1.5s infinite alternate forwards;
+}
+
+.gameOver>button{
+    margin-top: 100px;
+    height: 60px;
+    width: 200px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: #F8B229;
+    border: none;
+    border-radius: 30px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.gameOver>button:hover{
+    transform: translateY(-10%);
+}
+
+.gameOver>button:active{
+    transform: scale(0.95);
+    background-color: #fdcb68;
+    box-shadow: 0 0 10px 0 rgb(255, 255, 255);
+}
+
+#score{
+    margin-top: 150px;
+    color: #F8B229;
+}
+
+a{
+    position: absolute;
+    bottom: 30px;
+    text-decoration: none;
+    color: #EA4630;
+    cursor: pointer;
+}
+
+a:hover{
+    animation: github 2s linear 0s infinite alternate forwards;
+}
+
+@keyframes github{
+    0% {}
+    50% {color: #F8B229;}
+    100% {transform: scale(1.4);}
+}
+
+@keyframes down {
+    from {transform: translateY(-110%);}
+    to {transform: translateY(0%);}
+}
+
+@keyframes grow {
+    from {transform: scale(1);}
+    to {transform: scale(1.2);}
+}
